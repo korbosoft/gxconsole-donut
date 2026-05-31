@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "console_internal.h"
+
 static const u32 s_color_table[] = {
     0x000000,     /* black */
     0x800000,     /* red */

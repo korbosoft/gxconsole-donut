@@ -4,8 +4,6 @@
 #include <gccore.h>
 #include <sys/iosupport.h>
 
-#include "console_internal.h"
-
 #define _ANSI_MAXARGS 16
 
 typedef struct gx_console_font_t {
