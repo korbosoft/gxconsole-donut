@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(gxconsole LANGUAGES C VERSION 1.0.0)
+project(gxconsole-donut LANGUAGES C VERSION 1.0.0)
 
 option(BUILD_EXAMPLE "Build example program" OFF)
 
@@ -21,7 +21,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
-    PUBLIC_HEADER "source/gxconsole.h"
+    PUBLIC_HEADER "source/gxconsole-donut.h"
 )
 
 install(TARGETS ${PROJECT_NAME}

@@ -1,4 +1,4 @@
-#include "gxconsole.h"
+#include "gxconsole-donut.h"
 
 #include <gccore.h>
 #include <malloc.h>

@@ -1,4 +1,4 @@
-#include <gxconsole.h>
+#include <gxconsole-donut.h>
 
 static const u8 pixels[] = {
     /* 0 0x0000 */

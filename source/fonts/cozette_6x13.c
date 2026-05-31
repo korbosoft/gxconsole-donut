@@ -4,7 +4,7 @@
  *   bdftool -s 6x13 --offset 2x2 -r 0-127 -o font_cozette_6x13.c cozette.bdf
  */
 
-#include <gxconsole.h>
+#include <gxconsole-donut.h>
 
 static const u8 pixels[] = {
     /* 0 0x0000 */
