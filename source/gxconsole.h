@@ -2,6 +2,20 @@
 #define GX_CONSOLE_H
 
 #include <gccore.h>
+#include <sys/iosupport.h>
+
+#include "console_internal.h"
+
+#define _ANSI_MAXARGS 16
+
+typedef struct gx_console_font_t {
+    u8 char_width;
+    u8 char_height;
+    u8 bpp;
+    u8 ascii_offset;
+    u16 num_chars;
+    const u8 *pixels;
+} GxConsoleFont;
 
 typedef struct
 {
@@ -53,15 +67,6 @@ typedef struct gx_console_t {
     devoptab_t dotab;
     u8 texels[] ATTRIBUTE_ALIGN(32);
 } GxConsole;
-
-typedef struct gx_console_font_t {
-    u8 char_width;
-    u8 char_height;
-    u8 bpp;
-    u8 ascii_offset;
-    u16 num_chars;
-    const u8 *pixels;
-} GxConsoleFont;
 
 GxConsole *gx_console_new(u16 width_chars, u16 height_chars,
                           const GxConsoleFont *font);

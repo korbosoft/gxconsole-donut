@@ -1,14 +1,9 @@
 #include "gxconsole.h"
 
-#include "console_internal.h"
-
 #include <gccore.h>
 #include <malloc.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/iosupport.h>
-
-#define _ANSI_MAXARGS 16
 
 static const u32 s_color_table[] = {
     0x000000,     /* black */
