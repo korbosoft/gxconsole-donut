@@ -3,7 +3,56 @@
 
 #include <gccore.h>
 
-typedef struct gx_console_t GxConsole;
+typedef struct
+{
+    struct
+    {
+        int flags;
+        u16 fg;
+        u16 bg;
+    } color;
+    int arg_idx;
+    int args[_ANSI_MAXARGS];
+    int color_arg_count;
+    unsigned int color_args[3];
+    bool has_arg;
+    enum
+    {
+        ESC_NONE,
+        ESC_START,
+        ESC_BUILDING_UNKNOWN,
+        ESC_BUILDING_FORMAT_FG,
+        ESC_BUILDING_FORMAT_BG,
+        ESC_BUILDING_FORMAT_FG_NONRGB,
+        ESC_BUILDING_FORMAT_BG_NONRGB,
+        ESC_BUILDING_FORMAT_FG_RGB,
+        ESC_BUILDING_FORMAT_BG_RGB,
+    } state;
+} EscapeSeq;
+
+typedef struct gx_console_t {
+    GXTexObj texobj;
+    u16 width_chars;
+    u16 height_chars;
+    u32 texture_size;
+    const GxConsoleFont *font;
+    u8 char_w;
+    u8 char_h;
+    u16 pitch;
+    u16 tiles_per_row; /* GX 4x4 tiles in a row */
+    u16 bg;
+    u16 fg;
+    int flags;
+    u8 tab_size;
+    u8 alpha;
+    u16 cursor_x;
+    u16 cursor_y;
+    u16 prev_cursor_x;
+    u16 prev_cursor_y;
+    EscapeSeq esc;
+    devoptab_t dotab;
+    u8 texels[] ATTRIBUTE_ALIGN(32);
+} GxConsole;
 
 typedef struct gx_console_font_t {
     u8 char_width;
